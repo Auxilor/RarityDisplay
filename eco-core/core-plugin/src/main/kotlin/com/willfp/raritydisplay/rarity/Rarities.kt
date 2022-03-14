@@ -43,12 +43,8 @@ object Rarities {
     @ConfigUpdater
     @JvmStatic
     fun update(plugin: RarityDisplayPlugin) {
-        for (id in ArrayList(REGISTERED.keys)) {
-            if (id.equals("all", ignoreCase = true)) {
-                continue
-            }
-            REGISTERED.remove(id)
-        }
+        CACHE.invalidateAll()
+        REGISTERED.clear()
         for (id in plugin.configYml.getSubsection("rarities").getKeys(false)) {
             val target = Rarity(
                 id,
