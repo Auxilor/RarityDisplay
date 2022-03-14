@@ -2,7 +2,7 @@
 A simple plugin to display the rarity of different items, however you specify it in config
 
 <p>
-    <a href="https://polymart.org/resource/1-16-1-17-stattrackers.623">
+    <a href="https://polymart.org/resource/raritydisplay.2129">
         <img alt="spigot" src="https://img.shields.io/badge/polymart-RarityDisplay-11998e"/>
     </a>
     <a href="https://bstats.org/plugin/bukkit/RarityDisplay" alt="bstats servers">

@@ -8,7 +8,7 @@ import com.willfp.raritydisplay.commands.CommandRarityDisplay
 import com.willfp.raritydisplay.display.RarityDisplay
 import org.bukkit.event.Listener
 
-class RarityDisplayPlugin : EcoPlugin(0, 14623, "&#11998e", false) {
+class RarityDisplayPlugin : EcoPlugin(2129, 14623, "&#11998e", false) {
     init {
         instance = this
     }
