@@ -1,0 +1,16 @@
+#
+# RarityDisplay
+# by Auxilor
+#
+
+default-rarity: common
+insert-blank-line: true # If a blank line should be inserted before the rarity in lore
+
+rarities:
+  common:
+    items: [ ]
+    display: "&a&lCOMMON"
+  uncommon:
+    items:
+      - diamond_pickaxe
+    display: "&e&lUNCOMMON"

@@ -1,0 +1,28 @@
+name: RarityDisplay
+version: ${projectVersion}
+main: com.willfp.raritydisplay.RarityDisplayPlugin
+api-version: 1.17
+authors: [ Auxilor ]
+website: willfp.com
+depend:
+  - eco
+  - ProtocolLib
+
+commands:
+  raritydisplay:
+    description: Base plugin command
+    permission: raritydisplay.command.raritydisplay
+
+permissions:
+  raritydisplay.*:
+    description: All raritydisplay permissions
+    default: op
+    children:
+      raritydisplay.command.reload: true
+
+  raritydisplay.command.raritydisplay:
+    description: Allows the use of /raritydisplay.
+    default: true
+  raritydisplay.command.reload:
+    description: Allows reloading the config
+    default: op
