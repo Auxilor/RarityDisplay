@@ -45,13 +45,13 @@ object Rarities {
     fun update(plugin: RarityDisplayPlugin) {
         CACHE.invalidateAll()
         REGISTERED.clear()
-        for (id in plugin.configYml.getSubsection("rarities").getKeys(false)) {
-            val target = Rarity(
-                id,
-                plugin.configYml.getStrings("rarities.$id.items").map { Items.lookup(it) }.toMutableSet(),
-                plugin.configYml.getFormattedString("rarities.$id.display")
+        for (config in plugin.configYml.getSubsections("rarities")) {
+            val rarity = Rarity(
+                config.getString("id"),
+                config.getStrings("items").map { Items.lookup(it) }.toMutableSet(),
+                config.getFormattedString("display")
             )
-            REGISTERED[id] = target
+            REGISTERED[config.getString("id")] = rarity
         }
     }
 

@@ -9,8 +9,6 @@ import com.willfp.raritydisplay.display.RarityDisplay
 import org.bukkit.event.Listener
 
 class RarityDisplayPlugin : EcoPlugin(0, 14623, "&#11998e", false) {
-    private val configYml = RemovelessConfigYml(this)
-
     init {
         instance = this
     }
@@ -31,10 +29,6 @@ class RarityDisplayPlugin : EcoPlugin(0, 14623, "&#11998e", false) {
         return RarityDisplay(this)
     }
 
-    override fun getConfigYml(): ConfigYml {
-        return configYml
-    }
-
     companion object {
         /**
          * Instance of the plugin.
@@ -43,5 +37,3 @@ class RarityDisplayPlugin : EcoPlugin(0, 14623, "&#11998e", false) {
             private set
     }
 }
-
-class RemovelessConfigYml(plugin: RarityDisplayPlugin) : ConfigYml(plugin, false)

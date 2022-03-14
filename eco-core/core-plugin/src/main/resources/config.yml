@@ -10,10 +10,10 @@ insert-blank-line: true # If a blank line should be inserted before the rarity i
 # You can specify custom items, enchantments, or anything else you want
 # Read more about this here: https://plugins.auxilor.io/all-plugins/the-item-lookup-system
 rarities:
-  common:
+  - id: common
     items: [ ]
     display: "&a&lCOMMON"
-  uncommon:
+  - id: uncommon
     items:
       - diamond_pickaxe
     display: "&e&lUNCOMMON"
