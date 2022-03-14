@@ -21,7 +21,7 @@ class RarityDisplay(plugin: EcoPlugin) : DisplayModule(plugin, DisplayPriority.H
         if (plugin.configYml.getBool("insert-blank-line")) {
             lore.add(Display.PREFIX)
         }
-        lore.add(rarity.display)
+        lore.add("${Display.PREFIX}${rarity.display}")
         fis.lore = lore
     }
 }

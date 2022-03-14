@@ -6,6 +6,9 @@
 default-rarity: common
 insert-blank-line: true # If a blank line should be inserted before the rarity in lore
 
+# Add as many rarities as you want, each with as many items as you want
+# You can specify custom items, enchantments, or anything else you want
+# Read more about this here: https://plugins.auxilor.io/all-plugins/the-item-lookup-system
 rarities:
   common:
     items: [ ]
