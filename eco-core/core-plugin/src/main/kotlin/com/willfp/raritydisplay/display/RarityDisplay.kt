@@ -8,13 +8,22 @@ import com.willfp.eco.core.display.DisplayModule
 import com.willfp.eco.core.display.DisplayPriority
 import com.willfp.eco.core.fast.FastItemStack
 import com.willfp.raritydisplay.rarity.Rarities
+import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
 
 class RarityDisplay(plugin: EcoPlugin) : DisplayModule(plugin, DisplayPriority.HIGHEST) {
     override fun display(
         itemStack: ItemStack,
+        player: Player?,
         vararg args: Any
     ) {
+        if (player != null) {
+            val inventory = player.openInventory
+            if (inventory.topInventory.holder == null) {
+                return
+            }
+        }
+
         val rarity = Rarities.getForItem(itemStack)
         val fis = FastItemStack.wrap(itemStack)
         val lore = fis.lore.toMutableList()
