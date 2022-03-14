@@ -18,8 +18,8 @@ class RarityDisplay(plugin: EcoPlugin) : DisplayModule(plugin, DisplayPriority.H
         vararg args: Any
     ) {
         if (player != null) {
-            val inventory = player.openInventory
-            if (inventory.topInventory.holder == null) {
+            val inventory = player.openInventory.topInventory
+            if (inventory.contents.contains(itemStack) && inventory.holder == null) {
                 return
             }
         }
