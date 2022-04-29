@@ -1,5 +1,6 @@
 package com.willfp.raritydisplay.items
 
+import com.willfp.eco.core.fast.FastItemStack
 import com.willfp.eco.core.items.args.LookupArgParser
 import com.willfp.eco.util.NamespacedKeyUtils
 import com.willfp.raritydisplay.rarity.Rarities
