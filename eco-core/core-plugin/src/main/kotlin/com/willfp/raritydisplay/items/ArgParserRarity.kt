@@ -1,9 +1,11 @@
 package com.willfp.raritydisplay.items
 
 import com.willfp.eco.core.items.args.LookupArgParser
+import com.willfp.eco.util.NamespacedKeyUtils
 import com.willfp.raritydisplay.rarity.Rarities
 import org.bukkit.inventory.ItemStack
 import org.bukkit.inventory.meta.ItemMeta
+import org.bukkit.persistence.PersistentDataType
 import java.util.function.Predicate
 
 class ArgParserRarity: LookupArgParser {
@@ -20,6 +22,19 @@ class ArgParserRarity: LookupArgParser {
     }
 
     override fun serializeBack(meta: ItemMeta): String? {
-        return super.serializeBack(meta)
+        val rarity = if (meta.persistentDataContainer
+                .has(NamespacedKeyUtils.create("raritydisplay", "rarity"), PersistentDataType.STRING)) {
+            Rarities.getByName(
+                meta.persistentDataContainer
+                    .get(NamespacedKeyUtils.create("raritydisplay", "rarity"), PersistentDataType.STRING)
+            )
+        } else {
+            null
+        }
+        return if (rarity != null) {
+            "rarity:${rarity.name}"
+        } else {
+            null
+        }
     }
 }
