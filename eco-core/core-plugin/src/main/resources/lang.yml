@@ -1,6 +1,10 @@
 messages:
   prefix: "&#11998eRarityDisplay&r &8» &r"
   no-permission: "&cYou don't have permission to do this!"
-  not-player: "&cThis command must be run by a player"
+  not-player: "&cThis command must be run by a player!"
   invalid-command: "&cUnknown subcommand!"
   reloaded: "Reloaded! Took %time%ms"
+  rarity-required: "&cYou must specify a valid rarity!"
+  rarity-invalid: "&cInvalid rarity!"
+  item-required: "&cYou must hold an item in your hand!"
+  rarity-set: "&aSuccessfully set &r%rarity% &ararity to the item in your hand!"

@@ -5,8 +5,10 @@ import com.github.benmanes.caffeine.cache.Caffeine
 import com.willfp.eco.core.config.updating.ConfigUpdater
 import com.willfp.eco.core.items.HashedItem
 import com.willfp.eco.core.items.Items
+import com.willfp.eco.util.NamespacedKeyUtils
 import com.willfp.raritydisplay.RarityDisplayPlugin
 import org.bukkit.inventory.ItemStack
+import org.bukkit.persistence.PersistentDataType
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -26,10 +28,27 @@ object Rarities {
         return REGISTERED[name]
     }
 
+    fun setForItem(item: ItemStack, rarity: Rarity) {
+        val meta = item.itemMeta
+        meta.persistentDataContainer.set(NamespacedKeyUtils.create("raritydisplay", "rarity"),
+            PersistentDataType.STRING, rarity.name)
+        item.itemMeta = meta
+    }
+
     fun getForItem(item: ItemStack): Rarity {
         val hash = HashedItem.of(item)
         return CACHE.get(hash) {
             val itemStack = it.item
+            val override = if (itemStack.itemMeta.persistentDataContainer
+                    .has(NamespacedKeyUtils.create("raritydisplay", "rarity"), PersistentDataType.STRING)) {
+                getByName(itemStack.itemMeta.persistentDataContainer
+                    .get(NamespacedKeyUtils.create("raritydisplay", "rarity"), PersistentDataType.STRING))
+            } else {
+                null
+            }
+            if (override != null) {
+                return@get Optional.of(override)
+            }
             for (rarity in REGISTERED.values) {
                 if (rarity.matches(itemStack)) {
                     return@get Optional.of(rarity)

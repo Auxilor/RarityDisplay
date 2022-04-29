@@ -12,6 +12,7 @@ class CommandRarityDisplay(plugin: EcoPlugin) : PluginCommand(
 ) {
     init {
         this.addSubcommand(CommandReload(plugin))
+            .addSubcommand(CommandSetRarity(plugin))
     }
 
     override fun onExecute(sender: CommandSender, args: List<String>) {
