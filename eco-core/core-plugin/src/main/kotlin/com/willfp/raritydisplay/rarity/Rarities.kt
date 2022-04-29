@@ -8,6 +8,7 @@ import com.willfp.eco.core.items.Items
 import com.willfp.eco.util.NamespacedKeyUtils
 import com.willfp.raritydisplay.RarityDisplayPlugin
 import org.bukkit.inventory.ItemStack
+import org.bukkit.inventory.meta.ItemMeta
 import org.bukkit.persistence.PersistentDataType
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -33,6 +34,11 @@ object Rarities {
         meta.persistentDataContainer.set(NamespacedKeyUtils.create("raritydisplay", "rarity"),
             PersistentDataType.STRING, rarity.name)
         item.itemMeta = meta
+    }
+
+    fun setForItem(item: ItemMeta, rarity: Rarity) {
+        item.persistentDataContainer.set(NamespacedKeyUtils.create("raritydisplay", "rarity"),
+            PersistentDataType.STRING, rarity.name)
     }
 
     fun getForItem(item: ItemStack): Rarity {
