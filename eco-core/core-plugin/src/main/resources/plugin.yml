@@ -26,3 +26,6 @@ permissions:
   raritydisplay.command.reload:
     description: Allows reloading the config
     default: op
+  raritydisplay.command.setrarity:
+    description: Allows setting a custom rarity for an item
+    default: op

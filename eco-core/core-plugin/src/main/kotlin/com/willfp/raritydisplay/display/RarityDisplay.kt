@@ -7,6 +7,7 @@ import com.willfp.eco.core.display.Display
 import com.willfp.eco.core.display.DisplayModule
 import com.willfp.eco.core.display.DisplayPriority
 import com.willfp.eco.core.fast.FastItemStack
+import com.willfp.eco.core.fast.fast
 import com.willfp.raritydisplay.rarity.Rarities
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack
