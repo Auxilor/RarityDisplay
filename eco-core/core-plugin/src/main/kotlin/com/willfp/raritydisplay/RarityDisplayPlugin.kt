@@ -29,6 +29,10 @@ class RarityDisplayPlugin : EcoPlugin(2129, 14623, "&#11998e", false) {
         return RarityDisplay(this)
     }
 
+    override fun getMinimumEcoVersion(): String {
+        return "6.38.0"
+    }
+
     companion object {
         /**
          * Instance of the plugin.
